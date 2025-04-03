@@ -28,4 +28,8 @@ public interface StuffRepository extends JpaRepository<Stuff, Integer> {
 
     @Query("SELECT s FROM Stuff s LEFT JOIN FETCH s.categories WHERE s.id = :id")
     Optional<Stuff> findByIdWithCategories(@Param("id") Integer id);
+
+    List<Stuff> findByStatusOrderByNameAsc(Status status);
+
+    List<Stuff> findByCategoriesIdAndStatusOrderByNameAsc(Integer categoryId, Status status);
 }

@@ -1,7 +1,6 @@
 package org.apicrud.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,16 +25,13 @@ public class Stuff {
     @Column(nullable = false, updatable = false)
     private LocalDateTime date = LocalDateTime.now();
 
-    @Column(length = 127, nullable = false)
+    @Column(nullable = false)
     private String name;
 
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    @Column(length = 127)
     private String location;
-
-    @Column(length = 255)
     private String photo;
 
     @Enumerated(EnumType.STRING)
@@ -43,10 +39,11 @@ public class Stuff {
     private Status status = Status.ON;
 
     @Column(columnDefinition = "TEXT")
-    private String field1;
+    private String metadata;
 
-    @Column(columnDefinition = "TEXT")
-    private String field2;
+    @ManyToOne
+    @JoinColumn(name = "persona_id", nullable = false)
+    private Persona persona;
 
     @ManyToMany
     @JoinTable(
@@ -54,7 +51,5 @@ public class Stuff {
             joinColumns = @JoinColumn(name = "stuff_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id")
     )
-    @JsonManagedReference  // Adiciona esta anotação para evitar o loop
     private Set<Category> categories = new HashSet<>();
-
 }
