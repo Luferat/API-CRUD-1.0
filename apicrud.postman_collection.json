@@ -1,0 +1,211 @@
+{
+	"info": {
+		"_postman_id": "4a6003bc-4f82-4b6e-a83b-aa0dbe28a6db",
+		"name": "apicrud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "11187433"
+	},
+	"item": [
+		{
+			"name": "Stuff",
+			"item": [
+				{
+					"name": "All id, name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/stuff"
+					},
+					"response": []
+				},
+				{
+					"name": "All fields & categories",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/stuff/list"
+					},
+					"response": []
+				},
+				{
+					"name": "One By Id with categories",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/stuff/4"
+					},
+					"response": []
+				},
+				{
+					"name": "Set Status.OFF",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/stuff/3/delete"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Coisa DDD\",\r\n    \"description\": \"Descrição da coisa DDD\",\r\n    \"location\": \"Local da coisa DDD\",\r\n    \"photo\": \"coisa_ddd.jpg\",\r\n    \"categories\": [ 1, 2, 6 ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/stuff/5/edit"
+					},
+					"response": []
+				},
+				{
+					"name": "New",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"name\": \"Coisa K\",\r\n        \"description\": \"Descrição da coisa K\",\r\n        \"location\": \"Local da coisa K\",\r\n        \"photo\": \"coisa_k.jpg\",\r\n        \"categories\": [3, 7, 8]\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "://localhost:8080/api/stuff"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "All id, name, description",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/category"
+					},
+					"response": []
+				},
+				{
+					"name": "Set Status.OFF",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": "http://localhost:8080/api/category/2/delete"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit name, description",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Categoria AA\",\r\n    \"description\": \"Coisas da categoria AA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/category/1/edit"
+					},
+					"response": []
+				},
+				{
+					"name": "New",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Categoria I\",\r\n    \"description\": \"Coisas da categoria I\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/category"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "apibaseurl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
