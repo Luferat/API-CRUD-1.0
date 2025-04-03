@@ -14,6 +14,7 @@ public record StuffListDTO(
         // String status,
         // String field1,
         // String field2,
+        PersonaSimpleDTO persona,
         List<CategoryDTO> categories
 ) {
     public static StuffListDTO fromEntity(Stuff stuff) {
@@ -27,6 +28,7 @@ public record StuffListDTO(
                 // stuff.getStatus().name(),
                 // stuff.getField1(),
                 // stuff.getField2(),
+                PersonaSimpleDTO.fromEntity(stuff.getPersona()),
                 stuff.getCategories().stream().map(CategoryDTO::fromEntity).toList()
         );
     }

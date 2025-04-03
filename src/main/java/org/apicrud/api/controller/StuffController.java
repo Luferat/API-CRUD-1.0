@@ -9,7 +9,6 @@ import org.apicrud.api.model.Status;
 import org.apicrud.api.repository.CategoryRepository;
 import org.apicrud.api.repository.PersonaRepository;
 import org.apicrud.api.repository.StuffRepository;
-import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,10 +28,10 @@ public class StuffController {
     private final PersonaRepository personaRepository;
 
     @GetMapping
-    public List<StuffDTO> getAll() {
+    public List<StuffSimpleDTO> getAll() {
         return repository.findByStatusOrderByDateDesc(Status.ON)
                 .stream()
-                .map(StuffDTO::fromEntity)
+                .map(StuffSimpleDTO::fromEntity)
                 .toList();
     }
 
